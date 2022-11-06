@@ -1,0 +1,102 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "kernelArguments": {
+    "shouldExist": [
+      "systemd.unified_cgroup_hierarchy=0",
+      "mitigations=off"
+    ],
+    "shouldNotExist": [
+      "mitigations=auto,nosmt"
+    ]
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "__SSH_KEY_VALUE__",
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBFcglMr3lhTiz9fMD2F6wc4N2vquMLfdPVWQBTwSrMx4by4kEFDoETtDVQfDr5fGuwRGqYEQBZ7eCVgZ4xbzeLpwjIXglOf4h2G6HTTJwvHQEYP0xm/3GJqqVS/eFnQJTW9AZPFddaedkP7lKxsMiCgnrB1LugPpc55nMcNS671+R9KiU0lr/+H42OuHJiiK7urvXLZYKXrPK6NWsY1aVBFEasaLTl/OSIt8e71PqlArDZ9oGj8iHdwt8IXmBWE99s1DhbdwJ3ui6bEi50CkVNCjbMgrqAskpSRkZSxjLNUmnMPkPBzmga5E8zp+tzSaroqqtuPvm1AhKhwMuxFYc9FtC8CW67b9uR/gWC9tHNVLvz43HXqxHWOlbfDqssf4642JHjTBTaxEFsD56o9DKoVNsjIwLe3cG13eqldL5xiizHWJJCAy+CarDGRVEXOsaZgUi4SoazeGsHSEajNlJCtqId5/JTKsVODLwj+s+9Bt89gZ/7ieS5YtzqRinuO0= igortiunov@gmail.com"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "overwrite": true,
+        "path": "/var/lib/cloud/data"
+      },
+      {
+        "overwrite": true,
+        "path": "/var/lib/heat-cfntools"
+      }
+    ],
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/etc/selinux/config",
+        "contents": {
+          "source": "data:,SELINUX%3D__SELINUX_MODE__%0ASELINUXTYPE%3Dtargeted%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/containers/libpod.conf",
+        "contents": {
+          "source": "data:;base64,IyBNYXhpbXVtIHNpemUgb2YgbG9nIGZpbGVzIChpbiBieXRlcykKIyAtMSBpcyB1bmxpbWl0ZWQKIyA1MG0KbWF4X2xvZ19zaXplID0gNTI0Mjg4MDAK"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/hostname",
+        "contents": {
+          "source": "data:,__HOSTNAME__%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/pki/ca-trust/source/anchors/openstack-ca.pem",
+        "contents": {
+          "source": "data:,__OPENSTACK_CA__%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/root/configure-agent-env.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/5RUX4/jNBB/96cYLg+VgMQ9QDoJnZBOwIoVaEEgnhBUE3vaWEls4xlvCZ8e2W3Zblu0y1PUyfz+9Tdt85Hundc98qAUk0D71+FB9fFJVip7cRP8Bu0WNInRcXTaYCsps2gOORnS6M0QEusQybOgGVuDXaQZflc2KAAAMkOAN3t04vwOtiH9f7I3lYgnogifs7LBk1I6c6oRcrQo1J7I1DxadxQZc0/JkxBrZeKTsEysDSXhYqHP3k7UmSRXoGdvlWrg60QoBAgjLRFdqnlkIBgIpTXBCzpPqcUdeQEJqgE0hpjrkg+WIDxSAuahg3sBx5CZtnkCCRAiJRRSDTgPQ2CBOWQv4HEmjmgI0FvAGKcFTPBbt8sJxQXfKWePsdsImtOjnnHn86w75kGZYQ4W1u/W6+t3jYRshqu5Lnk2NcUmMSrmoR1p2ZGH9k9oBRIjtA+wWtXrkDleIubHW+MXhW7Dupj7l6Bl5xT1ixtRL5Vev1qZG/hgbW0x5n5yphRWiy89YZYhJPc32c1IC8PWTdSdNZJCkOsuzqYorzEBX52B9IXo0eEUDE7FkwQYfdhvikE+FcgGPbz97F237tbd28J3qVow/ghqyp0eT+10azXbp4W9J+BIxm0dWdg7Gep2e1fT3GA+8MD799/+eKe+Kxar1yJVf99QZg8405PBw/xXpgQl9+HjvSUvTpY7N9GLLf9L8H3JVRT4Nu48dzGomCy0Dlb6j58ozU5+DkF+CDvnNbCG7mNdM4csbUTmfUhWrw5/IIWOebCbQ2LVwC9kcnKyAPkBvaGZvHwJ3zjGfiI44esZlWymftPnDo4bH54twEJczdSnD/+lr3hhodnIBIlYMElpyqp/AgAA///qa68yAwYAAA=="
+        },
+        "mode": 492
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/zincati/config.d/90-disable-auto-updates.toml",
+        "contents": {
+          "source": "data:,%5Bupdates%5D%0Aenabled%20%3D%20false%0A"
+        },
+        "mode": 420
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Configure heat agent environment\nAfter=sshd.service\n\n[Service]\nUser=root\nGroup=root\nType=simple\nExecStart=/bin/bash /root/configure-agent-env.sh\nRestart=on-failure\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "configure-agent-env.service"
+      },
+      {
+        "contents": "[Unit]\nDescription=Run heat-container-agent\nAfter=network-online.target configure-agent-env.service\nWants=network-online.target\n\n[Service]\nEnvironmentFile=-/etc/environment\nExecStartPre=mkdir -p /var/lib/heat-container-agent\nExecStartPre=mkdir -p /var/run/heat-config\nExecStartPre=mkdir -p /var/run/os-collect-config\nExecStartPre=mkdir -p /opt/stack/os-config-refresh\nExecStartPre=-mv /var/lib/os-collect-config/local-data /var/lib/cloud/data/cfn-init-data\nExecStartPre=mkdir -p /srv/magnum\nExecStartPre=-/bin/podman kill heat-container-agent\nExecStartPre=-/bin/podman rm heat-container-agent\nExecStartPre=-/bin/podman pull __CONTAINER_INFRA_PREFIX__heat-container-agent:__HEAT_CONTAINER_AGENT_TAG__\nExecStart=/bin/podman run \\\n        --name heat-container-agent \\\n        --privileged \\\n        --net=host \\\n        --volume /srv/magnum:/srv/magnum \\\n        --volume /opt/stack/os-config-refresh:/opt/stack/os-config-refresh \\\n        --volume /run/systemd:/run/systemd \\\n        --volume /etc/:/etc/ \\\n        --volume /var/lib:/var/lib \\\n        --volume /var/run:/var/run \\\n        --volume /var/log:/var/log \\\n        --volume /tmp:/tmp \\\n        --volume /dev:/dev \\\n        --env REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt \\\n        __CONTAINER_INFRA_PREFIX__heat-container-agent:__HEAT_CONTAINER_AGENT_TAG__ \\\n        /usr/bin/start-heat-container-agent\nTimeoutStartSec=10min\nRestart=on-failure\nRestartSec=30s\n\nExecStop=/bin/podman stop heat-container-agent\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "heat-container-agent.service"
+      }
+    ]
+  }
+}

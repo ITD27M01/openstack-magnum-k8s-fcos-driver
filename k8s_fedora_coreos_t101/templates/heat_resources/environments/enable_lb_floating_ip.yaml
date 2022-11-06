@@ -1,0 +1,9 @@
+# enables the use of floating ip on the load balancer
+
+resource_registry:
+  "Magnum::Optional::Neutron::LBaaS::FloatingIP": "OS::Neutron::FloatingIP"
+
+  "Magnum::FloatingIPAddressSwitcher": "types/floating_ip_address_switcher_public.yaml"
+
+parameter_defaults:
+  dns_zone_prefix: cloud.openwaygroup.com

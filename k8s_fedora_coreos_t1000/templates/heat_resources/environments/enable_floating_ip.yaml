@@ -1,0 +1,25 @@
+resource_registry:
+  "Magnum::FloatingIPAddressSwitcher": "types/floating_ip_address_switcher_public.yaml"
+
+  # kubemaster.yaml
+  "Magnum::Optional::KubeMaster::Neutron::FloatingIP": "OS::Neutron::FloatingIP"
+  "Magnum::Optional::KubeMaster::Neutron::FloatingIPAssociation": "OS::Neutron::FloatingIPAssociation"
+
+  # kubeminion.yaml
+  "Magnum::Optional::KubeMinion::Neutron::FloatingIP": "OS::Neutron::FloatingIP"
+  "Magnum::Optional::KubeMinion::Neutron::FloatingIPAssociation": "OS::Neutron::FloatingIPAssociation"
+
+  # dcosmaster.yaml
+  "Magnum::Optional::DcosMaster::Neutron::FloatingIP": "OS::Neutron::FloatingIP"
+
+  # dcosslave.yaml
+  "Magnum::Optional::DcosSlave::Neutron::FloatingIP": "OS::Neutron::FloatingIP"
+
+  # swarmmaster.yaml
+  "Magnum::Optional::SwarmMaster::Neutron::FloatingIP": "OS::Neutron::FloatingIP"
+
+  # swarmnode.yaml
+  "Magnum::Optional::SwarmNode::Neutron::FloatingIP": "OS::Neutron::FloatingIP"
+
+parameter_defaults:
+  dns_zone_prefix: cloud.openwaygroup.com
